@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GetController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,7 @@ use App\Http\Controllers\GetController;
 
 //Route::get('/', function () {return view('welcome');});
 
-
+Route::post('/api/v1/notebook/', [PostController::class, 'AddNewUser']);
+Route::post('/api/v1/notebook/{id}', [PostController::class, 'UpdateUser']);
 Route::get('/api/v1/notebook/', [GetController::class, 'LoadAll']);
 Route::get('/api/v1/notebook/{id}', [GetController::class, 'LoadID']);

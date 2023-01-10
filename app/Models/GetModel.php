@@ -11,7 +11,8 @@ class GetModel extends Model
     use HasFactory;
     public function getListAll()
     {
-        $count_table_ = DB::table('user') -> count();
+        //вывод всех пользователей
+        $count_table_ = GetModel::getCount_All();
         $list_table_ = json_decode(DB::table('user') -> select('id','surname', 'name','patronymic', 'phone', 'email', 'date_of_birth', 'photo_url') -> get(), true);
         $arr_nu = [];
         $arr2 = [];
@@ -27,6 +28,10 @@ class GetModel extends Model
             }
         }
         return ["code"=>"200", "count"=>$count_table_, "array"=>$arr2];
+    }
+    function getCount_All()
+    {
+        return = DB::table('user') -> count();
     }
     public function getListID($id)
     {
