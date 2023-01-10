@@ -31,7 +31,7 @@ class GetModel extends Model
     }
     function getCount_All()
     {
-        return = DB::table('user') -> count();
+        return DB::table('user') -> count();
     }
     public function getListID($id)
     {
